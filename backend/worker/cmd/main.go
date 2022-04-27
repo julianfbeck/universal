@@ -1,22 +1,29 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
-	"github.com/julianfbeck/universal/backend/services/stock/worker/services"
+	"github.com/julianfbeck/universal/backend/services/stock/shared/repository/redis"
 )
+
+type RedisRepository struct {
+	HI string
+}
 
 //main function
 func main() {
-	log.Println("Starting webscraper...")
-	var scrapedProduct services.AmazonProductDe
-	scrapedProduct.Asin = "B01LZ3KHAL"
-	scrapedProduct.Asin = "B089NKGWQQ"
-	_, err := scrapedProduct.GetProductInfoByASIN()
-	//log error
+	redis, err := redis.NewRedisRepository()
 	if err != nil {
-		log.Println(err)
+		panic(err)
 	}
-	//log result
-	log.Println(scrapedProduct)
+
+	//subscribe channel
+	response := make(chan string)
+	// var repository = RedisRepository{}
+	go redis.Subscribe("beju", response)
+
+	for {
+		fmt.Println(<-response)
+		// helpers.StringToType(<-response, &repository)
+	}
 }

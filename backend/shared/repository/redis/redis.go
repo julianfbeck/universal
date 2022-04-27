@@ -101,19 +101,32 @@ func (r *repository) Publish(channel string, payload interface{}) error {
 	return nil
 }
 
-func (r *repository) Subscribe(channel string, response chan interface{}) {
+// func (r *repository) Subscribe(channel string, response chan interface{}) {
+// 	pubsub := r.redisClient.Subscribe(context.Background(), channel)
+// 	// Get the Channel to use
+// 	ch := pubsub.Channel()
+// 	// iterate any messages sent on the channel
+
+// 	for msg := range ch {
+// 		var payload interface{}
+// 		// Unmarshal the data into the user
+// 		if err := json.Unmarshal([]byte(msg.Payload), &payload); err != nil {
+// 			close(response)
+// 		}
+// 		response <- payload
+
+// 	}
+// 	defer pubsub.Close()
+
+// }
+func (r *repository) Subscribe(channel string, response chan string) {
 	pubsub := r.redisClient.Subscribe(context.Background(), channel)
 	// Get the Channel to use
 	ch := pubsub.Channel()
 	// iterate any messages sent on the channel
 
 	for msg := range ch {
-		var payload interface{}
-		// Unmarshal the data into the user
-		if err := json.Unmarshal([]byte(msg.Payload), &payload); err != nil {
-			close(response)
-		}
-		response <- payload
+		response <- msg.Payload
 
 	}
 	defer pubsub.Close()
