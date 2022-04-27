@@ -93,3 +93,46 @@ func (r *repository) SMembers(key string) ([]string, error) {
 	}
 	return p, nil
 }
+
+func (r *repository) Publish(channel string, payload interface{}) error {
+	if err := r.redisClient.Publish(context.Background(), channel, payload).Err(); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (r *repository) Subscribe(channel string, response chan interface{}) {
+	pubsub := r.redisClient.Subscribe(context.Background(), channel)
+	// Get the Channel to use
+	ch := pubsub.Channel()
+	// iterate any messages sent on the channel
+
+	for msg := range ch {
+		var payload interface{}
+		// Unmarshal the data into the user
+		if err := json.Unmarshal([]byte(msg.Payload), &payload); err != nil {
+			close(response)
+		}
+		response <- payload
+
+	}
+	defer pubsub.Close()
+
+}
+
+func (r *repository) SubscribeCallback(channel string, callback func(payload interface{})) error {
+	pubsub := r.redisClient.Subscribe(context.Background(), channel)
+	defer pubsub.Close()
+
+	for {
+		msg, err := pubsub.ReceiveMessage(context.Background())
+		if err != nil {
+			return err
+		}
+		var payload interface{}
+		if err := json.Unmarshal([]byte(msg.Payload), &payload); err != nil {
+			return err
+		}
+		callback(payload)
+	}
+}
