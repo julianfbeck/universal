@@ -18,7 +18,7 @@ package:
 
 docker:
 	@echo "Building docker image"
-	docker build -t $DOCKER_IMAGE .
+	docker build -t ${DOCKER_IMAGE} .
 
 test:
 	go test ./...  -list=.
