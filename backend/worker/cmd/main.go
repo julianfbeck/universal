@@ -22,7 +22,6 @@ func main() {
 	response := make(chan string)
 	var repository = PubMessage{}
 	go redis.Subscribe("beju", response)
-
 	for {
 		err := helpers.StringToType(<-response, &repository)
 		if err != nil {

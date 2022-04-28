@@ -18,6 +18,7 @@ func main() {
 	message := PubMessage{
 		Response: "hello",
 	}
+
 	err = redis.Publish("beju", message)
 	if err != nil {
 		panic(err)
