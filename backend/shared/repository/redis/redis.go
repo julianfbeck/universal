@@ -95,30 +95,35 @@ func (r *repository) SMembers(key string) ([]string, error) {
 }
 
 func (r *repository) Publish(channel string, payload interface{}) error {
-	if err := r.redisClient.Publish(context.Background(), channel, payload).Err(); err != nil {
+	jsonPayload, err := json.Marshal(payload)
+	if err != nil {
+		return err
+	}
+	fmt.Println(string(jsonPayload))
+	if err := r.redisClient.Publish(context.Background(), channel, jsonPayload).Err(); err != nil {
 		return err
 	}
 	return nil
 }
 
-// func (r *repository) Subscribe(channel string, response chan interface{}) {
-// 	pubsub := r.redisClient.Subscribe(context.Background(), channel)
-// 	// Get the Channel to use
-// 	ch := pubsub.Channel()
-// 	// iterate any messages sent on the channel
+func (r *repository) SubscribeGeneric(channel string, response chan interface{}) {
+	pubsub := r.redisClient.Subscribe(context.Background(), channel)
+	// Get the Channel to use
+	ch := pubsub.Channel()
+	// iterate any messages sent on the channel
 
-// 	for msg := range ch {
-// 		var payload interface{}
-// 		// Unmarshal the data into the user
-// 		if err := json.Unmarshal([]byte(msg.Payload), &payload); err != nil {
-// 			close(response)
-// 		}
-// 		response <- payload
+	for msg := range ch {
+		var payload interface{}
+		// Unmarshal the data into the user
+		if err := json.Unmarshal([]byte(msg.Payload), &payload); err != nil {
+			close(response)
+		}
+		response <- payload
 
-// 	}
-// 	defer pubsub.Close()
+	}
+	defer pubsub.Close()
 
-// }
+}
 func (r *repository) Subscribe(channel string, response chan string) {
 	pubsub := r.redisClient.Subscribe(context.Background(), channel)
 	// Get the Channel to use

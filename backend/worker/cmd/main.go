@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 
+	"github.com/julianfbeck/universal/backend/services/stock/shared/helpers"
 	"github.com/julianfbeck/universal/backend/services/stock/shared/repository/redis"
 )
 
-type RedisRepository struct {
-	HI string
+type PubMessage struct {
+	Response string
 }
 
 //main function
@@ -19,11 +20,14 @@ func main() {
 
 	//subscribe channel
 	response := make(chan string)
-	// var repository = RedisRepository{}
+	var repository = PubMessage{}
 	go redis.Subscribe("beju", response)
 
 	for {
-		fmt.Println(<-response)
-		// helpers.StringToType(<-response, &repository)
+		err := helpers.StringToType(<-response, &repository)
+		if err != nil {
+			fmt.Println(err)
+		}
+		fmt.Println(repository)
 	}
 }

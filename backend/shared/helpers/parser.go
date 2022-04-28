@@ -1,6 +1,8 @@
 package helpers
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 //string to type
 func StringToType(s string, t interface{}) error {
