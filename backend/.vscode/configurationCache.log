@@ -1,1 +1,1 @@
-{"buildTargets":["all","build","cmddocs","generate","test"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["all","cover","docker","docs-server","docs-worker","package","runctr","runwkr","test"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

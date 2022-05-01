@@ -1,3 +1,4 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 3.81
 # Copyright (C) 2006  Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.
@@ -6,13 +7,13 @@
 
 # This program built for i386-apple-darwin11.3.0
  
+make: *** No rule to make target `build', needed by `all'.  Stop.
 
-# Make data base, printed on Wed Apr 27 20:38:41 2022
+
+# Make data base, printed on Sat Apr 30 16:39:05 2022
 
 # Variables
 
-# environment
-VSCODE_GIT_ASKPASS_MAIN = /Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
 # environment
 define TIMEFMT
 
@@ -24,8 +25,6 @@ endef
 ?F = $(notdir $?)
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -53,15 +52,15 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCodeInsiders
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/jr/t729792d00lgcldxlh0gnm480000gn/T/vscode-ipc-b4f68601-9abd-44f0-b090-c1543ef36bf3.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/jr/t729792d00lgcldxlh0gnm480000gn/T/vscode-ipc-b4df94dc-bd90-461d-9522-2cfdc6cc44af.sock
 # environment
 HOMEBREW_AUTO_UPDATE_SECS = 604800
 # environment
-VSCODE_CWD = /Users/julianbeck/Development/GoWorkspace/src/github.com/julianfbeck/universal-stock/backend
+VSCODE_CWD = /
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # environment
-PATH = /Users/julianbeck/.local/share/fig/plugins/git-open:/Users/julianbeck/go/bin:/Users/julianbeck/Library/Python/3.8/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/Users/julianbeck/bin:/Users/julianbeck/go/bin:/usr/local/git/bin:/Users/julianbeck/.composer/vendor/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Users/julianbeck/.fig/bin:/Users/julianbeck/.local/bin
+PATH = /Users/julianbeck/.local/share/fig/plugins/git-open:/Users/julianbeck/go/bin:/Users/julianbeck/Library/Python/3.8/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/Users/julianbeck/bin:/Users/julianbeck/go/bin:/usr/local/git/bin:/Users/julianbeck/.composer/vendor/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Users/julianbeck/.cargo/bin:/Users/julianbeck/.fig/bin:/Users/julianbeck/.local/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -79,11 +78,11 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9csX6Izvsb/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-TTY = /dev/ttys010
+TTY = not a tty
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-FIG_PID = 26479
+FIG_PID = 60886
 # environment
 PWD = /Users/julianbeck/Development/GoWorkspace/src/github.com/julianfbeck/universal-stock/backend
 # environment
@@ -95,13 +94,11 @@ HOME = /Users/julianbeck
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /Users/julianbeck/Library/Application Support/Code - Insiders/CachedData/ab86e0229d6b4d0cb49cfd6747c92cafcd2bd4af
+VSCODE_CODE_CACHE_PATH = /Users/julianbeck/Library/Application Support/Code - Insiders/CachedData/ed2619e11b68bec43b788486230b0c2afeb4672d
 # environment
 LOGNAME = julianbeck
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 ZSH = /Users/julianbeck/.local/share/fig/plugins/ohmyzsh
 # environment
@@ -109,39 +106,25 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-MAKELEVEL := 0
-# environment
 XPC_FLAGS = 0x0
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 3
-# environment
-FIG_TERM = 1
+SHLVL = 1
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = julianbeck
-# environment
-FIG_TERM_VERSION = 4.3.0
-# environment
-TERM_SESSION_ID = 54F81C7C-D91C-4E96-A921-C30BB0A08A60
+# makefile
+.DEFAULT_GOAL := all
 # environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# environment
-FIG_INTEGRATION_VERSION = 8
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
-# environment
-VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
-# environment
-TERM_PROGRAM = vscode
 # default
 .VARIABLES := 
 # environment
@@ -150,8 +133,6 @@ TMPDIR = /var/folders/jr/t729792d00lgcldxlh0gnm480000gn/T/
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /Users/julianbeck/Library/Application Support/Code - Insiders/1.67.0-insider-main.sock
-# environment
-VSCODE_GIT_ASKPASS_NODE = /Applications/Visual Studio Code - Insiders.app/Contents/MacOS/Electron
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -159,9 +140,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-TERM_PROGRAM_VERSION = 1.67.0-insider
-# environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCodeInsiders.26127451.26127457.6EFAAB76-B70C-44DE-B460-834DA4CCF278
+XPC_SERVICE_NAME = application.com.microsoft.VSCodeInsiders.27001671.27001677
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -172,8 +151,6 @@ __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
 NOW_RFC3339 = $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 # environment
 COMMAND_MODE = unix2003
-# environment
-GIT_ASKPASS = /Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/extensions/git/dist/askpass.sh
 # default
 MAKEFILES := 
 # automatic
@@ -187,19 +164,15 @@ LC_ALL = C
 # default
 SUFFIXES := 
 # environment
-VSCODE_GIT_IPC_HANDLE = /var/folders/jr/t729792d00lgcldxlh0gnm480000gn/T/vscode-git-32ac5b4e5d.sock
-# makefile
-.DEFAULT_GOAL := all
+MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 20081
+VSCODE_PID = 60878
 # environment
 COMPOSER_MEMORY_LIMIT = -1
 # variable set hash-table stats:
-# Load=91/1024=9%, Rehash=0, Collisions=7/116=6%
+# Load=76/1024=7%, Rehash=0, Collisions=3/99=3%
 
 # Pattern-specific Variable Values
 
@@ -207,9 +180,9 @@ COMPOSER_MEMORY_LIMIT = -1
 
 # Directories
 
-# . (device 16777234, inode 24995451): 10 files, no impossibilities.
+# . (device 16777234, inode 24995451): 14 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -217,23 +190,29 @@ COMPOSER_MEMORY_LIMIT = -1
 
 # Files
 
-cmddocs: generate
+# Not a target:
+cmddocs:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 17):
-	@echo Running Docs Generation
-	bash scripts/generate_docs.sh
-	
 
 all: build cmddocs
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/2=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+cover:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 27):
+	go test -v -coverprofile cover.out  ./... 
+	go tool cover -html=cover.out -o cover.html
+	open cover.html
+	
 
 # Not a target:
 .SUFFIXES:
@@ -244,60 +223,55 @@ all: build cmddocs
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-27 20:38:12
+#  Last modified 2022-04-27 21:56:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+docs-server:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 32):
+	@echo Running Docs Generation
+	cd control/cmd
+	godoc -http=:6060 
+	
+
 test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 14):
-	go test ./... -ldflags="-X 'github.com/superfly/flyctl/internal/buildinfo.buildDate=$(NOW_RFC3339)'"
+#  commands to execute (from `Makefile', line 24):
+	go test ./...  -list=.
 	
 
-build: generate
-#  Implicit rule search has not been done.
+# Not a target:
+build:
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/2=0%
-#  commands to execute (from `Makefile', line 10):
-	@echo Running Build
-	go build -o bin/flyctl -ldflags="-X 'github.com/superfly/flyctl/internal/buildinfo.buildDate=$(NOW_RFC3339)'" . 
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+runctr:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 7):
+	@echo "Running control"
+	go run ./control/cmd/main.go
 	
 
-generate:
+docs-worker:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := generate
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
- 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/10=10%
-#  commands to execute (from `Makefile', line 6):
-	@echo Running Generate for Help
-	go generate ./...
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 37):
+	@echo Running Docs Generation
+	cd worker/cmd
+	godoc -http=:6060 
 	
 
 # Not a target:
@@ -306,8 +280,37 @@ generate:
 #  Modification time never checked.
 #  File has not been updated.
 
+package:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 15):
+	@echo "Packaging"
+	go build -o ./bin/control ./control/cmd/main.go
+	go build -o ./bin/worker ./worker/cmd/main.go
+	
+
+docker:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 20):
+	@echo "Building docker image"
+	docker build -t ${DOCKER_IMAGE} .
+	
+
+runwkr:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 11):
+	@echo "Running worker"
+	go run ./worker/cmd/main.go
+	
+
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/26=0%
+ 
+# Load=14/1024=1%, Rehash=0, Collisions=0/29=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -319,6 +322,6 @@ generate:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Apr 27 20:38:41 2022
+# Finished Make data base on Sat Apr 30 16:39:05 2022
 
  

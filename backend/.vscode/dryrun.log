@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/julianbeck/Development/GoWorkspace/src/github.com/julianfbeck/universal-stock/backend'
+make: Leaving directory `/Users/julianbeck/Development/GoWorkspace/src/github.com/julianfbeck/universal-stock/backend'
+ 
+make: *** No rule to make target `build', needed by `all'.
+make: *** No rule to make target `cmddocs', needed by `all'.
+
